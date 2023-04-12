@@ -8,7 +8,7 @@ header:
 
 build_system: isar
 
-machine: raspberry-pi4
+machine: raspberry-pi4-rt
 distro: raspios-bullseye
 target: isar-image-base
 
@@ -26,8 +26,6 @@ local_conf_header:
   settings:
     ISAR_CROSS_COMPILE="1"
   kernel: |
-    KERNEL_NAME = "raspberry-pi4-rt"
-    #    DTB_FILES = "bcm2711-rpi-4-b.dtb"
     IMAGE_KERNEL_CMDLINE_TUNE = "isolcpus=2-3 rcu_nocbs=2-3 nohz_full=2-3 irqaffinity=0-1 tsc=nowatchdog nosoftlockup"
   users: |
     USERS += "root"
